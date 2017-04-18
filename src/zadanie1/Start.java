@@ -10,8 +10,6 @@ public class Start {
         Object mutex = new Object();
         Thread thread1 = new WatekNieparzyste(mutex);
         Thread thread2 = new WatekParzyste(mutex);
-
-        WatekNieparzyste.isRun=true;
         thread1.start();
         thread2.start();
     }

@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class WatekNieparzyste extends Thread {
     private int liczba = 1;
     private final Object mutex;
-    public static volatile boolean isRun = false;
 
     public WatekNieparzyste(Object mutex){
         this.mutex = mutex;
