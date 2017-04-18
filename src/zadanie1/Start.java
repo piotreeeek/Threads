@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Start {
     public static void main(String[] args) {
-        AtomicInteger aInt = new AtomicInteger(0);
-        Thread thread1 = new WatekNieparzyste(aInt);
-        Thread thread2 = new WatekParzyste(aInt);
+        Object mutex = new Object();
+        Thread thread1 = new WatekNieparzyste(mutex);
+        Thread thread2 = new WatekParzyste(mutex);
 
-
+        WatekNieparzyste.isRun=true;
         thread1.start();
         thread2.start();
     }
