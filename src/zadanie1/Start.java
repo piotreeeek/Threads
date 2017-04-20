@@ -11,7 +11,6 @@ public class Start {
         Thread thread1 = new WatekNieparzyste(aInt);
         Thread thread2 = new WatekParzyste(aInt);
 
-
         thread1.start();
         thread2.start();
     }
