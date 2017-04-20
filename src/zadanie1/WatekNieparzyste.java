@@ -13,10 +13,19 @@ public class WatekNieparzyste extends Thread {
     }
     @Override
     public void run() {
-        while (aInt.get()<100) {
-                if (aInt.get() % 2 == 0) {
-                    System.out.println(aInt.incrementAndGet());
+        do{
+            synchronized (aInt) {
+                if (aInt.get()%2 != 0){
+                    System.out.println(aInt.getAndIncrement());
+                    aInt.notifyAll();
+                }else {
+                    try {
+                        aInt.wait();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
-        }
+            }
+        }while (aInt.get()<=100);
     }
 }
